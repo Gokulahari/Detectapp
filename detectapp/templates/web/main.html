@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>Stocks</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <style>
+    .vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one 🙂       */
+  display:flex;
+  align-items:center;
+}
+
+    </style>
+</head>
+<body>
+ <form action="" method="post">
+{% csrf_token %}
+
+<div class="vertical-center" >
+   <div class="container-fluid main-container">
+    <div class="col-md-10 content col-xs-offset-20">
+        <div class="panel panel-default" style="border-color: green;text-align: center;border-width: 10px;width: 500px;border-radius: 25px;padding: 50px;width: 1000px; height: 450px;text-shadow: 2px 2px 5px blue;box-shadow: 0 10px 10px 2px">
+            <div class="panel-heading" style="border-radius: 15px;font-family: myFirstFont;font-size: 30px;"><strong>Stock Market</strong></div>
+            <div class="panel-body">
+            <label style="color:green">Product Name:</label>
+            <input class="form-control" style="border-width: 5px;border-color: grey" id="nam" name = "nam" type="text"><br>
+            <!--<label style="color:green">Product Id:</label>-->
+            <!--<input class="form-control" style="border-width: 5px;border-color: grey" id="ii" name="ii" type="text"><br>-->
+             <label style="color:green">Price:</label>
+            <input class="form-control" style="border-width: 5px;border-color: grey" id="rs" name="rs" type="text">
+                <br><br>
+                <input type="submit" class="btn btn-primary" value="Add" name="click" style="border-radius: 55px;width: 100px">
+                <input type="submit" class="btn btn-primary" value="Delete" name="click1" style="border-radius: 55px;width: 100px">
+                <input type="submit" class="btn btn-primary" value="Display" name="click2" style="border-radius: 55px;width: 100px">
+                <br><br>
+                <input type="submit" class="btn btn-primary" value="Update" name="click3" style="border-radius: 55px;width: 100px">
+                <input type="submit" class="btn btn-primary" value="Orders" name="click4" style="border-radius: 55px;width: 100px">
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    </div>
+
+<h3>{{k}}</h3>
+     <script>
+
+         $( function() {
+    var ans = [
+      {% for i in w %}
+          "{{i.pro_name}}",
+      {%endfor%}
+    ];
+
+    $( "#nam" ).autocomplete({
+      source: ans
+    });
+  } );
+
+     </script>
+
+
+
+ </form>
+</body>
+</html>

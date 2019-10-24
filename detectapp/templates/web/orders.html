@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+</head>
+<body>
+{% csrf_token %}
+<h3 id="out2" style="text-align: justify"></h3>
+
+
+
+
+<!--{% for i in k.items%}-->
+    <!--{% for j in i.items%}-->
+        <!--<h1>{{j}}</h1>-->
+
+    <!--{%endfor%}-->
+<!--{%endfor%}-->
+
+
+  <!--{% for key, value in k.items %}-->
+    <!--{% for key1, value1 in value.items %}-->
+
+        <!--{{key1}}-->
+        <!--{{value1}}<br>-->
+
+    <!--{% endfor %}-->
+  <!--{% endfor %}-->
+
+
+<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-database.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD1F03SqagQY1Fj9ghix5rhAX0H3EOrVRk",
+    authDomain: "grocery-7a56e.firebaseapp.com",
+    databaseURL: "https://grocery-7a56e.firebaseio.com",
+    projectId: "grocery-7a56e",
+    storageBucket: "grocery-7a56e.appspot.com",
+    messagingSenderId: "61264205453",
+    appId: "1:61264205453:web:af51ade5f61bb79e1034c4"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script>
+
+        var ret=firebase.database().ref('Orders/');
+        ret.on('value',function(snapshot){
+            ans='';
+            var count=1;
+            var res=snapshot.val();
+            console.log(res['Groceries']);
+            for (var i in res)
+            {
+            ans+=count+' .) '+'{{k}}'+'<br>'+'<br>';
+            count++;
+            }
+
+            document.getElementById('out2').innerHTML=ans;
+        });
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
