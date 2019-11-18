@@ -5,7 +5,7 @@ from firebase_admin import credentials
 from firebase_admin import db
 
 cred = credentials.Certificate(
-        'C:\\Users\\Gokulahari\\Desktop\\firebase stuffs\\Grocery project\\python firebase\\firebase-admin-sdk.json')
+        './firebase-admin-sdk.json')
 firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://grocery-7a56e.firebaseio.com'
     })

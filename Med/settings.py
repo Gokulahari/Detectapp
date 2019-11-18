@@ -75,12 +75,12 @@ WSGI_APPLICATION = 'Med.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-       'default': {
-           'ENGINE': 'djongo',
-           'NAME': 'gokul',
-       }
-   }
+# DATABASES = {
+#        'default': {
+#            'ENGINE': 'djongo',
+#            'NAME': 'gokul',
+#        }
+#    }
 
 
 # Password validation
