@@ -1,0 +1,534 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Orders</title>-->
+     <!--<style>-->
+
+        <!--.table-->
+        <!--{-->
+        <!--border: 5px solid black;-->
+        <!--border-collapse: collapse;-->
+        <!--}-->
+        <!--th, td {-->
+        <!--padding: 5px;-->
+        <!--text-align: left;-->
+        <!--}-->
+
+
+    <!--</style>-->
+
+<!--</head>-->
+<!--<body>-->
+
+
+<!--<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>-->
+<!--<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-database.js"></script>-->
+
+<!--<script>-->
+  <!--// Your web app's Firebase configuration-->
+  <!--var firebaseConfig = {-->
+    <!--apiKey: "AIzaSyD1F03SqagQY1Fj9ghix5rhAX0H3EOrVRk",-->
+    <!--authDomain: "grocery-7a56e.firebaseapp.com",-->
+    <!--databaseURL: "https://grocery-7a56e.firebaseio.com",-->
+    <!--projectId: "grocery-7a56e",-->
+    <!--storageBucket: "grocery-7a56e.appspot.com",-->
+    <!--messagingSenderId: "61264205453",-->
+    <!--appId: "1:61264205453:web:af51ade5f61bb79e1034c4"-->
+  <!--};-->
+  <!--// Initialize Firebase-->
+  <!--firebase.initializeApp(firebaseConfig);-->
+<!--</script>-->
+
+<!--<script>-->
+
+        <!--var ret = firebase.database().ref('/');-->
+        <!--ret.once('value',function(snapshot){-->
+        <!--var res = snapshot.val();-->
+        <!--&lt;!&ndash;console.log(res);&ndash;&gt;-->
+
+        <!--var table = document.createElement('table');-->
+        <!--table.style.border="5px solid Black";-->
+        <!--table.style.borderCollapse="collapse";-->
+        <!--table.style.width = "75%";-->
+        <!--table.style.marginLeft = "auto";-->
+        <!--table.style.marginRight = "auto";-->
+
+        <!--var tr1 = document.createElement('tr');-->
+
+        <!--var th1 = document.createElement('th');-->
+        <!--th1.style.border="5px solid Black";-->
+        <!--th1.style.borderCollapse="collapse";-->
+        <!--th1.style.padding="5px";-->
+        <!--th1.style.textAlign="left";-->
+
+        <!--var th2 = document.createElement('th');-->
+        <!--th2.style.border="5px solid Black";-->
+        <!--th2.style.borderCollapse="collapse";-->
+        <!--th2.style.padding="5px";-->
+        <!--th2.style.textAlign="left";-->
+
+        <!--var th3 = document.createElement('th');-->
+        <!--th3.style.border="5px solid Black";-->
+        <!--th3.style.borderCollapse="collapse";-->
+        <!--th3.style.padding="5px";-->
+        <!--th3.style.textAlign="left";-->
+
+        <!--var th4 = document.createElement('th');-->
+        <!--th4.style.border="5px solid Black";-->
+        <!--th4.style.borderCollapse="collapse";-->
+        <!--th4.style.padding="5px";-->
+        <!--th4.style.textAlign="left";-->
+
+        <!--var th5 = document.createElement('th');-->
+        <!--th5.style.border="5px solid Black";-->
+        <!--th5.style.borderCollapse="collapse";-->
+        <!--th5.style.padding="5px";-->
+        <!--th5.style.textAlign="left";-->
+
+        <!--var th6 = document.createElement('th');-->
+        <!--th6.style.border="5px solid Black";-->
+        <!--th6.style.borderCollapse="collapse";-->
+        <!--th6.style.padding="5px";-->
+        <!--th6.style.textAlign="left";-->
+
+        <!--var nm = document.createTextNode("Name");-->
+        <!--var add = document.createTextNode("Address");-->
+        <!--var phn = document.createTextNode("Contact");-->
+        <!--var gro = document.createTextNode("Groceries");-->
+        <!--var ot = document.createTextNode("Ordered Time");-->
+        <!--var dur = document.createTextNode("Duration");-->
+
+
+        <!--th1.appendChild(nm);-->
+        <!--th2.appendChild(add);-->
+        <!--th3.appendChild(phn);-->
+        <!--th4.appendChild(gro);-->
+        <!--th5.appendChild(ot);-->
+        <!--th6.appendChild(dur);-->
+        <!--tr1.appendChild(th1);-->
+        <!--tr1.appendChild(th2);-->
+        <!--tr1.appendChild(th3);-->
+        <!--tr1.appendChild(th4);-->
+        <!--tr1.appendChild(th5);-->
+        <!--tr1.appendChild(th6);-->
+        <!--table.appendChild(tr1);-->
+
+
+        <!--&lt;!&ndash;document.body.appendChild(table);&ndash;&gt;-->
+
+        <!--for(i in res)-->
+        <!--{-->
+            <!--&lt;!&ndash;console.log(res['Unique']);&ndash;&gt;-->
+
+
+            <!--var tr = document.createElement('tr');-->
+
+            <!--var td1 = document.createElement('td');-->
+
+            <!--td1.style.border="5px solid Black";-->
+            <!--td1.style.borderCollapse="collapse";-->
+            <!--td1.style.padding="5px";-->
+            <!--td1.style.textAlign="left";-->
+
+            <!--var td2 = document.createElement('td');-->
+
+            <!--td2.style.border="5px solid Black";-->
+            <!--td2.style.borderCollapse="collapse";-->
+            <!--td2.style.padding="5px";-->
+            <!--td2.style.textAlign="left";-->
+
+            <!--var td3 = document.createElement('td');-->
+
+            <!--td3.style.border="5px solid Black";-->
+            <!--td3.style.borderCollapse="collapse";-->
+            <!--td3.style.padding="5px";-->
+            <!--td3.style.textAlign="left";-->
+
+            <!--var td4 = document.createElement('td');-->
+
+            <!--td4.style.border="5px solid Black";-->
+            <!--td4.style.borderCollapse="collapse";-->
+            <!--td4.style.padding="5px";-->
+            <!--td4.style.textAlign="left";-->
+
+            <!--var td5 = document.createElement('td');-->
+
+            <!--td5.style.border="5px solid Black";-->
+            <!--td5.style.borderCollapse="collapse";-->
+            <!--td5.style.padding="5px";-->
+            <!--td5.style.textAlign="left";-->
+
+            <!--var td6 = document.createElement('td');-->
+
+            <!--td6.style.border="5px solid Black";-->
+            <!--td6.style.borderCollapse="collapse";-->
+            <!--td6.style.padding="5px";-->
+            <!--td6.style.textAlign="left";-->
+
+            <!--var text1 = document.createTextNode(res[i]['ConsumerDetails']['Name']);-->
+            <!--var text2 = document.createTextNode(res[i]['ConsumerDetails']['Address']);-->
+            <!--var text3 = document.createTextNode(res[i]['MobileNumber']);-->
+
+
+            <!--var btn = document.createElement("BUTTON");-->
+            <!--btn.innerHTML = "Orders";-->
+            <!--btn.id = i;-->
+            <!--btn.onclick = function()-->
+            <!--{-->
+
+                <!--var ans1 = res[this.id]['Groceries'];-->
+                <!--console.log(this.id);-->
+
+
+
+                    <!--&lt;!&ndash;console.log(j.length);&ndash;&gt;-->
+                    <!--var groclen=Object.keys(ans1).length;-->
+                    <!--console.log(groclen);-->
+                        <!--createtable(groclen,2)-->
+                    <!--&lt;!&ndash;document.write('<table>'+'<td>'+j+'</td>'+ans1[j]+'<br>');&ndash;&gt;-->
+
+
+                <!--};-->
+
+
+            <!--var text5 = document.createTextNode(res[i]['Timings']['OrderedTime']);-->
+            <!--var text6 = document.createTextNode(res[i]['Timings']['Duration']);-->
+
+            <!--td1.appendChild(text1);-->
+            <!--td2.appendChild(text2);-->
+            <!--td3.appendChild(text3);-->
+            <!--td4.appendChild(btn);-->
+            <!--td5.appendChild(text5);-->
+            <!--td6.appendChild(text6);-->
+            <!--tr.appendChild(td1);-->
+            <!--tr.appendChild(td2);-->
+            <!--tr.appendChild(td3);-->
+            <!--tr.appendChild(td4);-->
+            <!--tr.appendChild(td5);-->
+            <!--tr.appendChild(td6);-->
+
+            <!--table.appendChild(tr);-->
+            <!--document.body.appendChild(table);-->
+
+
+            <!--&lt;!&ndash;table.setAttribute("border", "2px solid black");&ndash;&gt;-->
+            <!--&lt;!&ndash;table.style.marginTop = "100px";&ndash;&gt;-->
+
+
+        <!--}-->
+
+
+         <!--&lt;!&ndash;document.getElementById('out2').innerHTML=ans;&ndash;&gt;-->
+        <!--});-->
+
+
+<!--function createtable(rows,cols)-->
+<!--{-->
+<!--var table=document.createElement('table');-->
+<!--table.setAttribute('border','1px solid black');-->
+<!--for(let i=0;i<rows;i++)-->
+    <!--{-->
+        <!--var trow = document.createElement('tr');-->
+        <!--for(let j = 0;j<cols;j++)-->
+            <!--{-->
+                <!--var tdata = document.createElement('td');-->
+                <!--tdata.textContent = "2";-->
+                <!--trow.appendChild(tdata);-->
+            <!--}-->
+         <!--table.appendChild(trow);-->
+    <!--}-->
+    <!--document.write(document.body.appendChild(table));-->
+<!--}-->
+
+
+
+<!--</script>-->
+
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+     <style>
+
+         .abc
+         {
+            width:100%;
+            height:100%;
+            background-color : #2196F3;
+
+         }
+
+        table
+        {
+        border: 5px solid black;
+        border-collapse: collapse;
+        }
+        th, td {
+        padding: 5px;
+        text-align: left;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+
+<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-database.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyD1F03SqagQY1Fj9ghix5rhAX0H3EOrVRk",
+    authDomain: "grocery-7a56e.firebaseapp.com",
+    databaseURL: "https://grocery-7a56e.firebaseio.com",
+    projectId: "grocery-7a56e",
+    storageBucket: "grocery-7a56e.appspot.com",
+    messagingSenderId: "61264205453",
+    appId: "1:61264205453:web:af51ade5f61bb79e1034c4"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script>
+
+
+
+
+
+        var ret = firebase.database().ref('/');
+        ret.on('value',function(snapshot){
+        var res = snapshot.val();
+
+
+
+        var table = document.createElement('table');
+        table.style.border="5px solid Black";
+        table.style.borderCollapse="collapse";
+        table.style.width = "75%";
+        table.style.marginLeft = "auto";
+        table.style.marginRight = "auto";
+
+        var tr1 = document.createElement('tr');
+
+        var th1 = document.createElement('th');
+        th1.style.border="5px solid Black";
+        th1.style.borderCollapse="collapse";
+        th1.style.padding="5px";
+        th1.style.textAlign="left";
+
+        var th2 = document.createElement('th');
+        th2.style.border="5px solid Black";
+        th2.style.borderCollapse="collapse";
+        th2.style.padding="5px";
+        th2.style.textAlign="left";
+
+        var th3 = document.createElement('th');
+        th3.style.border="5px solid Black";
+        th3.style.borderCollapse="collapse";
+        th3.style.padding="5px";
+        th3.style.textAlign="left";
+
+        var th4 = document.createElement('th');
+        th4.style.border="5px solid Black";
+        th4.style.borderCollapse="collapse";
+        th4.style.padding="5px";
+        th4.style.textAlign="left";
+
+        var th5 = document.createElement('th');
+        th5.style.border="5px solid Black";
+        th5.style.borderCollapse="collapse";
+        th5.style.padding="5px";
+        th5.style.textAlign="left";
+
+        var th6 = document.createElement('th');
+        th6.style.border="5px solid Black";
+        th6.style.borderCollapse="collapse";
+        th6.style.padding="5px";
+        th6.style.textAlign="left";
+
+
+        var oid = document.createTextNode("Order Id");
+        var nm = document.createTextNode("Name");
+        var add = document.createTextNode("Address");
+        var phn = document.createTextNode("Contact");
+        var gro = document.createTextNode("Ordered Groceries");
+        var ot = document.createTextNode("Ordered Time");
+
+
+        th1.appendChild(oid);
+        th2.appendChild(nm);
+        th3.appendChild(add);
+        th4.appendChild(phn);
+        th5.appendChild(gro);
+        th6.appendChild(ot);
+
+
+        tr1.appendChild(th1);
+        tr1.appendChild(th2);
+        tr1.appendChild(th3);
+        tr1.appendChild(th4);
+        tr1.appendChild(th5);
+        tr1.appendChild(th6);
+        table.appendChild(tr1);
+
+
+
+
+
+
+        for(i in res['orders'])
+            {
+
+               <!--console.log(res['orders'][i]['date']+"-"+res['orders'][i]['timing']);-->
+
+
+
+
+                var tr = document.createElement('tr');
+
+                var td1 = document.createElement('td');
+
+                td1.style.border="5px solid Black";
+                td1.style.borderCollapse="collapse";
+                td1.style.padding="5px";
+                td1.style.textAlign="left";
+
+                var td2 = document.createElement('td');
+
+                td2.style.border="5px solid Black";
+                td2.style.borderCollapse="collapse";
+                td2.style.padding="5px";
+                td2.style.textAlign="left";
+
+                var td3 = document.createElement('td');
+
+                td3.style.border="5px solid Black";
+                td3.style.borderCollapse="collapse";
+                td3.style.padding="5px";
+                td3.style.textAlign="left";
+
+                var td4 = document.createElement('td');
+
+                td4.style.border="5px solid Black";
+                td4.style.borderCollapse="collapse";
+                td4.style.padding="5px";
+                td4.style.textAlign="left";
+
+                var td5 = document.createElement('td');
+
+                td5.style.border="5px solid Black";
+                td5.style.borderCollapse="collapse";
+                td5.style.padding="5px";
+                td5.style.textAlign="left";
+
+                var td6 = document.createElement('td');
+
+                td6.style.border="5px solid Black";
+                td6.style.borderCollapse="collapse";
+                td6.style.padding="5px";
+                td6.style.textAlign="left";
+
+                var text1 = document.createTextNode(i);
+                var text2 = document.createTextNode(res['user_details'][res['orders'][i]['ReferenceId']]['name']);
+                var text3 = document.createTextNode(res['orders'][i]['delivery_address']);
+
+
+                var btn = document.createElement("BUTTON");
+                btn.innerHTML = "Orders";
+                btn.id = i;
+                btn.onclick = function(){
+
+                    var ans1 = res['orders'][this.id]['goods'];
+                    document.write('<table style = "border:3px solid black ; margin-left:auto; margin-right:auto ; width:75%">');
+                    document.write('<tr>'+'<th style = "border:3px solid black">'+"Groceries"+'</th>'+'<th style = "border:3px solid black">'+"Quantity(in grams)"+'</th>'+'</tr>');
+
+                    for(j in ans1)
+                    {
+                        document.write('<tr>');
+                        document.write('<td style = "border:3px solid black">'+j+'</td>');
+                        document.write('<td style = "border:3px solid black">'+ans1[j]+'</td>');
+                        document.write('</tr>');
+                    }
+
+                    };
+
+
+                var text5 = document.createTextNode(res['user_details'][res['orders'][i]['ref_id']]['Phoneno']);
+                var text6 = document.createTextNode(res['orders'][i]['date']+"---"+res['orders'][i]['timing']);
+
+                td1.appendChild(text1);
+                td2.appendChild(text2);
+                td3.appendChild(text3);
+                td4.appendChild(text5);
+                td5.appendChild(btn);
+                td6.appendChild(text6);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+                tr.appendChild(td5);
+                tr.appendChild(td6);
+
+                table.appendChild(tr);
+                document.body.appendChild(table);
+
+
+                }
+
+
+
+        });
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -3,10 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Orders</title>
+     <style>
+
+        table
+        {
+        border: 5px solid black;
+        border-collapse: collapse;
+        }
+        th, td {
+        padding: 5px;
+        text-align: left;
+        }
+
+
+    </style>
+
 </head>
 <body>
 
-<h3 id="out2" style="text-align: justify"></h3>
+<h1>ConsumerDetails : </h1><br><br>
+Date : <input type="datetime-local" id="dt"> <br><br>
+DeliveryMan : <input type="text" id="dm"> <br><br>
+
+Address : <input type="text" id="da"> <br><br>
+
+Goods : <br>
+
+<input type="text" id="pro1">  &nbsp;&nbsp; <input type="text" id="q1"> <br>
+<input type="text" id="pro2">  &nbsp;&nbsp; <input type="text" id="q2"> <br>
+<input type="text" id="pro3">  &nbsp;&nbsp; <input type="text" id="q3"> <br>
+<br>
+
+Ref_id : <input type="text" id="rid"> <br><br>
+
+Status : <input type="text" id="ss"> <br><br>
+
+Duration : <input type="time" id="dur"> <br><br>
+
+
+<h1>User Details</h1><br><br>
+
+MailId :<input type="email" id="em"> <br><br>
+
+Permanent Address : <input type="text" id="pa"> <br><br>
+
+PhoneNumber : <input type="text" id="pn"> <br><br>
+
+Name : <input type="text" id="names"> <br><br>
+
+
+<h1>Delivery Man Details</h1><br><br>
+
+Address : <input type="text" id="deladd"> <br><br>
+
+PhoneNumber :<input type="text" id="delno"> <br><br>
+
+Age : <input type="text" id="delage"> <br><br>
+Name : <input type="text" id="delname"> <br><br>
+
+<input type="button" id = "btn" value="Click" onclick="fb()">
+
+
 
 
 <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
@@ -29,24 +86,82 @@
 
 <script>
 
-        var ret=firebase.database().ref('Orders/');
-        ret.on('value',function(snapshot){
-            ans='';
-            var count=1;
-            var res=snapshot.val();
-            console.log(res['Groceries']);
-            for (var i in res)
-            {
-            ans+=count+' .) '+i+'<br>'+'<br>';
-            count++;
-            }
-
-            document.getElementById('out2').innerHTML=ans;
-        });
 
 
+function fb()
+{
 
+        var ret1 = firebase.database().ref('orders/');
+        var ret2 = firebase.database().ref('delivery_man/');
+        var ret3 = firebase.database().ref('user_details/');
+
+         var dat=document.getElementById('dt').value;
+         var delman=document.getElementById('dm').value;
+         var add =document.getElementById('da').value;
+
+        var pro1 = document.getElementById('pro1').value;
+        var pro2 = document.getElementById('pro2').value;
+        var pro3 = document.getElementById('pro3').value;
+        var q1 = document.getElementById('q1').value;
+        var q2 = document.getElementById('q2').value;
+        var q3 = document.getElementById('q3').value;
+
+        <!--var rid = document.getElementById('rid').value;-->
+        var ss = document.getElementById('ss').value;
+        var dur = document.getElementById('dur').value;
+
+        var em = document.getElementById('em').value;
+        var pa = document.getElementById('pa').value;
+        var pn = document.getElementById('pn').value;
+        var names = document.getElementById('names').value;
+
+        var deladd = document.getElementById('deladd').value;
+        var delno = document.getElementById('delno').value;
+        var delage = document.getElementById('delage').value;
+        var delname = document.getElementById('delname').value;
+
+            console.log(name);
+    
+        
+        var groc={};
+        groc[pro1]=q1;
+        groc[pro2]=q2;
+        groc[pro3]=q3;
+
+    
+         var data1=ret1.push({
+
+            "Date" : dat ,
+            "DeliveryMan" : delman ,
+            "DeliveryAddress" : add ,
+            "Goods" : groc ,
+            "ReferenceId": "",
+            "Status" : ss ,
+            "Duration" : dur,
+
+            });
+
+         var data2=ret2.push({
+
+            "Address" : deladd ,
+            "PhoneNumber" : delno ,
+            "Age" : delage ,
+            "Name" : delname,
+
+            });
+
+         var data3=ret3.push({
+
+            "Mail" : em,
+            "PermanentAddress" : pa,
+            "PhoneNumber" : pn,
+            "Name" : names,
+
+            });
+
+}
 
 </script>
+
 </body>
 </html>

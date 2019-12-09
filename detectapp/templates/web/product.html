@@ -23,10 +23,10 @@
 {% csrf_token %}
     <table style="width:75% ; margin-left:auto;margin-right:auto;margin-top:100px">
         <tr><th><h1 style="text-align: center">Product</h1></th><th><h1 style="text-align: center">Price</h1></th></tr>
-        {% for i in prod%}
+        {% for i,j in data.items%}
         <tr>
-            <td><font size="5">{{i.pro_name}}</font> </td>
-            <td><font size="5">{{"$"}} {{i.pro_price}}</font></td>
+            <td><font size="5">{{i}}</font> </td>
+            <td><font size="5">{{"$"}} {{j}}</font></td>
         </tr>
         {% endfor %}
 

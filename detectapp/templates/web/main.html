@@ -28,7 +28,7 @@
    <div class="container-fluid main-container">
     <div class="col-md-10 content col-xs-offset-20">
         <div class="panel panel-default" style="border-color: green;text-align: center;border-width: 10px;width: 500px;border-radius: 25px;padding: 50px;width: 1000px; height: 450px;text-shadow: 2px 2px 5px blue;box-shadow: 0 10px 10px 2px">
-            <div class="panel-heading" style="border-radius: 15px;font-family: myFirstFont;font-size: 30px;"><strong>Stock Market</strong></div>
+            <div class="panel-heading" style="border-radius: 15px;font-family: myFirstFont;font-size: 30px;"><strong>GRoMaLi's </strong></div>
             <div class="panel-body">
             <label style="color:green">Product Name:</label>
             <input class="form-control" style="border-width: 5px;border-color: grey" id="nam" name = "nam" type="text"><br>
@@ -36,12 +36,14 @@
             <!--<input class="form-control" style="border-width: 5px;border-color: grey" id="ii" name="ii" type="text"><br>-->
              <label style="color:green">Price:</label>
             <input class="form-control" style="border-width: 5px;border-color: grey" id="rs" name="rs" type="text">
-                <br><br>
+                <br><div style="color:red">{{k}}</div>
+
+                <br>
                 <input type="submit" class="btn btn-primary" value="Add" name="click" style="border-radius: 55px;width: 100px">
                 <input type="submit" class="btn btn-primary" value="Delete" name="click1" style="border-radius: 55px;width: 100px">
                 <input type="submit" class="btn btn-primary" value="Display" name="click2" style="border-radius: 55px;width: 100px">
                 <br><br>
-                <input type="submit" class="btn btn-primary" value="Update" name="click3" style="border-radius: 55px;width: 100px">
+
                 <input type="submit" class="btn btn-primary" value="Orders" name="click4" style="border-radius: 55px;width: 100px">
 
             </div>
@@ -53,13 +55,13 @@
 
     </div>
 
-<h3>{{k}}</h3>
+<!--<h3>{{k}}</h3>-->
      <script>
 
          $( function() {
     var ans = [
       {% for i in w %}
-          "{{i.pro_name}}",
+          "{{i}}",
       {%endfor%}
     ];
 
