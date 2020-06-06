@@ -57,7 +57,7 @@ more-itertools==4.3.0
 msgpack==0.6.2
 MyApplication==0.1.0
 networkx==2.2
-nltk==3.4
+nltk==3.4.5
 numba==0.46.0
 numpy==1.15.4
 opencv-python==3.4.4.19
