@@ -11,7 +11,7 @@ Click==7.0
 cloudooo==1.2.3
 cloudooo.handler.imagemagick==0.1
 cloudpickle==0.6.1
-cryptography==2.4.2
+cryptography==3.2
 cudatools==0.0.1
 cycler==0.10.0
 dask==1.0.0
