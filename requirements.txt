@@ -60,7 +60,7 @@ networkx==2.2
 nltk==3.4
 numba==0.46.0
 numpy==1.15.4
-opencv-python==3.4.4.19
+opencv-python==3.4.7.28
 Paste==3.0.5
 PasteDeploy==2.0.1
 PasteScript==3.0.0
