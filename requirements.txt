@@ -46,7 +46,7 @@ image==1.5.27
 img2pdf==0.3.3
 itsdangerous==1.1.0
 Jinja2==2.10.3
-jwcrypto==0.6.0
+jwcrypto==1.4
 kiwisolver==1.0.1
 llvmlite==0.30.0
 lxml==4.4.1
